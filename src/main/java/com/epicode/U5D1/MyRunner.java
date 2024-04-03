@@ -22,13 +22,17 @@ public class MyRunner implements CommandLineRunner {
         order1.addToOrder(menu.getPizzaList().get(1));
         order1.addToOrder(menu.getPizzaList().get(2));
         order1.addToOrder(menu.getPizzaList().get(0));
+        order1.addToOrder(menu.getDrinkList().get(0));
 
         order1.totalOrderPrice();
 
 
         System.out.println("Ordine:");
-        System.out.println("numero ordine" + order1.getOrderNumber());
-        System.out.println(order1.getFood());
-        System.out.println(order1.getTotalPrice());
+        System.out.println("---------");
+        System.out.println("numero ordine: " + order1.getOrderNumber());
+        order1.getFood().forEach(System.out::println);
+        System.out.println("Totale ordine: " + order1.getTotalPrice());
+        System.out.println(" ");
+        System.out.println("------ ");
     }
 }

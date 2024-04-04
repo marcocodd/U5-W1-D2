@@ -4,11 +4,13 @@ public class Table {
     private int numberTable;
     private int maxPersons;
     private boolean reserved;
+    private double coverPrice;
 
-    public Table(int numberTable, int maxPersons, boolean reserved) {
+    public Table(int numberTable, int maxPersons, boolean reserved, double coverPrice) {
         this.numberTable = numberTable;
         this.maxPersons = maxPersons;
         this.reserved = reserved;
+        this.coverPrice = coverPrice;
     }
 
     public int getNumberTable() {
@@ -33,5 +35,23 @@ public class Table {
 
     public void setReserved(boolean reserved) {
         this.reserved = reserved;
+    }
+
+    public double getCoverPrice() {
+        return coverPrice;
+    }
+
+    public void setCoverPrice(double coverPrice) {
+        this.coverPrice = coverPrice;
+    }
+
+    @Override
+    public String toString() {
+        return "Table{" +
+                "numberTable=" + numberTable +
+                ", maxPersons=" + maxPersons +
+                ", reserved=" + reserved +
+                ", coverPrice=" + coverPrice +
+                '}';
     }
 }

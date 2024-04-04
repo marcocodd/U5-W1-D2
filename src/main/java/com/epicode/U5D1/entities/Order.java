@@ -1,19 +1,14 @@
 package com.epicode.U5D1.entities;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class Order {
     private int orderNumber;
     private StateOrder state;
-
-    @Value("${cover.price}")
-    private int coverPrice;
     private int covers;
     private LocalDate orderDate;
     private List<Item> food;
@@ -30,6 +25,7 @@ public class Order {
         this.table = table;
 
     }
+
 
     public int getOrderNumber() {
         return orderNumber;
@@ -75,6 +71,7 @@ public class Order {
         return totalPrice;
     }
 
+
     public void setTotalPrice(double totalPrice) {
         this.totalPrice = totalPrice;
     }
@@ -97,7 +94,7 @@ public class Order {
             price += item.getPrice();
         }
 
-        price += table.getMaxPersons() * coverPrice;
+        price += table.getMaxPersons() * table.getCoverPrice();
         this.totalPrice = price;
     }
 
@@ -106,7 +103,6 @@ public class Order {
         return "Order{" +
                 "orderNumber=" + orderNumber +
                 ", state=" + state +
-                ", coverPrice=" + coverPrice +
                 ", covers=" + covers +
                 ", orderDate=" + orderDate +
                 ", food=" + food +

@@ -113,9 +113,20 @@ public class AppConfig {
 
     }
 
-    @Bean
-    public int getCoversPrice(@Value("${cover.price}") int cover) {
-        return cover;
+    @Bean("Tavolo1")
+    Table getTable1(@Value("${cover.price}") double coverPrice) {
+        return new Table(1, 5, true, coverPrice);
+    }
+
+    @Bean("Tavolo2")
+    Table getTable2(@Value("${cover.price}") double coverPrice) {
+        return new Table(2, 4, true, coverPrice);
+    }
+
+    @Bean("Tavolo3")
+    Table getTable3(@Value("${cover.price}") double coverPrice) {
+        return new Table(3, 8, true, coverPrice);
+
     }
 }
 
